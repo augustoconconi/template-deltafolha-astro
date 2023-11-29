@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <!--#include virtual="/virtual/3.0/arte/script-app.inc"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <!--#include virtual="/virtual/3.0/arte/head__full-page.inc" -->
+  </head>
+  <body>
+    <!--#include virtual="/virtual/3.0/arte/header__full-page.inc" -->
+    <slot />
+  </body>
+  <!--#include virtual="/virtual/3.0/arte/article-graphic__full-page_after.inc" -->
+</html>
+<style is:global>
+  .text-balance {
+    text-wrap: balance;
+  }
+  .maplibregl-control-container
+    > div.maplibregl-ctrl-bottom-right
+    > details:nth-child(2) {
+    display: none;
+  }
+
+  .maplibregl-ctrl
+    .maplibregl-ctrl-attrib
+    .maplibregl-compact
+    .maplibregl-compact-show {
+    display: block !important;
+  }
+</style>

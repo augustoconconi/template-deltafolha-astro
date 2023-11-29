@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Special.dev.astro";
+import CustomMapSwiper from "../components/custom/swiper";
+import Heading from "../components/text/heading";
+import Dateline from "../components/text/dateline";
+import Byline from "../components/text/byline";
+import Paragraph from "../components/text/paragraph";
+import Infographic from "../components/charts/Infographic";
+
+const authorsData = [
+  { name: "Augusto Conconi", profileUrl: "https://exemplo.com/augusto" },
+  { name: "Cristiano Martins", profileUrl: "https://exemplo.com/augusto" },
+  { name: "Daniel Mariani", profileUrl: "https://exemplo.com/augusto" },
+  { name: "Nicholas Pretto", profileUrl: "https://exemplo.com/augusto" },
+];
+---
+
+<Layout title="Amazônia Desmatada">
+  <main
+    class="bg-[#333] text-white"
+    style={{ position: "relative", minHeight: "100dvh" }}
+  >
+    <CustomMapSwiper client:only="react" />
+    <section
+      id="article"
+      class="absolute mt-[100dvh] min-h-screen w-full bg-[#333] py-12 sm:py-28"
+    >
+      <article class="">
+        <div class="grid grid-cols-12 gap-5 pt-5">
+          <Heading
+            type="headline"
+            className="px-4 col-start-1 col-end-12 sm:px-0 xl:col-start-5 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-5 2xl:col-end-9"
+          >
+            Desmatamento na Amazônia diminui em 2023, mas segue com ritmo
+            acelerado
+          </Heading>
+          <Heading
+            as="h2"
+            type="subhead"
+            className="px-4 col-start-1 col-end-12 sm:px-0 xl:col-start-5 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-5 2xl:col-end-9"
+          >
+            Aumento de despesas e frustração de receitas consomem folga na reta
+            final deste ano
+          </Heading>
+        </div>
+        <div class="grid grid-cols-12 gap-5 py-5">
+          <div
+            class="col-start-1 col-end-12 px-4 sm:px-0 md:col-start-3 md:col-end-11 xl:col-start-3 xl:col-end-5 xl:justify-self-end 2xl:col-start-3"
+          >
+            <Dateline datetime="2023-11-27 10:09:00" />
+          </div>
+          <div
+            class="col-start-1 col-end-12 px-4 sm:px-0 md:col-start-3 md:col-end-11 xl:col-start-5 xl:col-end-9"
+          >
+            <Byline authors={authorsData} />
+          </div>
+        </div>
+        <div class="grid grid-cols-12 gap-5 py-2">
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-5 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-5 2xl:col-end-9"
+          >
+            Ao indicar o ministro da Justiça, Flávio Dino, para a vaga de Rosa
+            Weber no STF (Supremo Tribunal Federal) o presidente Lula deve
+            reduzir a representação feminina na corte, que passa a ter apenas
+            uma mulher dentre seus 11 integrantes, a ministra Cármen Lúcia. <br
+            /><br />
+
+            Como mostrou a Folha, o presidente anunciou a escolha a aliados, que
+            deve ser comunicada nesta segunda-feira (27).
+          </Paragraph>
+          <Infographic
+            client:only="react"
+            id="eleicoes-argentina"
+            className="my-10 col-start-1 col-end-13 xl:col-start-4 2xl:col-start-4 2xl:col-end-9 xl:col-end-12 md:col-start-2 md:col-end-12 xl:w-[850px] 2xl:translate-x-36"
+            url="https://arte.folha.uol.com.br/deltafolha/2023/10/22/eleicoes-argentina/"
+          />
+          <Infographic
+            client:only="react"
+            id="AjHkP"
+            className="my-10 col-start-1 col-end-13 xl:col-start-4 2xl:col-start-4 2xl:col-end-9 xl:col-end-12 md:col-start-2 md:col-end-12 xl:w-[850px] 2xl:translate-x-36"
+            url="https://arte.folha.uol.com.br/cotidiano/2023/11/21/repasse-verba-universidades-federais-sob-bolsonaro/infografico4.html"
+          />
+        </div>
+      </article>
+    </section>
+  </main>
+</Layout>
+
+<style></style>

@@ -1,0 +1,159 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <!--#include virtual="/virtual/3.0/arte/head__embed_head.inc"-->
+  </head>
+
+  <body class="font-sans">
+    <slot />
+  </body>
+  <!--#include virtual="/virtual/3.0/arte/footer__script-resize.inc"-->
+</html>
+
+<style is:global>
+  ::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+    background: #fff;
+  }
+  ::-webkit-scrollbar-thumb:horizontal {
+    background: #0078a4;
+    border-radius: 10px;
+  }
+
+  :root {
+    --swiper-theme-color: #0078a4;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: #0078a4 !important;
+  }
+
+  .deltatable {
+    text-wrap: balance;
+  }
+
+  .legend {
+    display: flex;
+    flex-direction: row; /* Alterado para dispor horizontalmente */
+    justify-content: flex-start; /* Dispor itens lado a lado */
+    align-items: baseline;
+    /* padding: 10px;
+    width: 100%;  */
+  }
+
+  /* Estilize cada item da legenda */
+  .legend-item {
+    display: flex;
+    flex-direction: column; /* Adicionado para dispor o texto abaixo das cores */
+    align-items: center;
+    flex: 1;
+    /* Espaçamento entre os itens (pode ajustar conforme necessário) */
+  }
+
+  .legend-items {
+    display: flex;
+    flex: 1;
+  }
+
+  /* Estilize a cor da legenda */
+  .legend-color {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 5px; /* Espaçamento entre a cor e o rótulo */
+  }
+
+  /* Estilize o rótulo da legenda */
+  .legend-label {
+    font-size: 12px;
+    text-align: center; /* Centralizar o texto */
+    padding-right: 0px;
+  }
+
+  [data-status="muitoalto"],
+  [data-status="alto"],
+  [data-status="medio"],
+  [data-status="baixo"],
+  [data-status="muitobaixo"],
+  [data-status="muito baixo"],
+  [data-status="muito alto"],
+  [data-status="médio"] {
+    font-weight: bold;
+    padding: 2%;
+    border-radius: 5px;
+    line-height: 35px;
+    text-wrap: nowrap;
+  }
+
+  [data-status="muitoalto"],
+  [data-status="muito alto"] {
+    background-color: #b44034;
+    color: white;
+  }
+
+  [data-status="alto"] {
+    background-color: #f6b09d;
+  }
+
+  [data-status="medio"],
+  [data-status="médio"] {
+    background-color: #ffebb8;
+  }
+
+  [data-status="baixo"] {
+    background-color: #88bce7;
+  }
+
+  [data-status="muitobaixo"],
+  [data-status="muito baixo"] {
+    background-color: #004f9f;
+    color: white;
+  }
+
+  @keyframes fadeInOut {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    10%,
+    90% {
+      opacity: 1;
+    }
+  }
+
+  .paragrafo {
+    display: none;
+    animation: fadeInOut 9s infinite;
+  }
+
+  .paragrafo:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .paragrafo:nth-child(2) {
+    animation-delay: 3s;
+  }
+
+  .paragrafo:nth-child(3) {
+    animation-delay: 6s;
+  }
+
+  .paragrafo:nth-child(1) {
+    display: block;
+  }
+</style>

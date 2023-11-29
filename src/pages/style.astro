@@ -1,0 +1,81 @@
+---
+import Layout from "../layouts/Special.dev.astro";
+import Heading from "../components/text/heading";
+import Dateline from "../components/text/dateline";
+import Byline from "../components/text/byline";
+import Paragraph from "../components/text/paragraph";
+import Infographic from "../components/charts/Infographic";
+import SliderWrapper from "../components/elements/slider";
+import InteractiveDisclosure from "../components/elements/isInterative";
+
+const authorsData = [
+  { name: "Augusto Conconi", profileUrl: "https://exemplo.com/augusto" },
+  { name: "Cristiano Martins", profileUrl: "https://exemplo.com/augusto" },
+  { name: "Nicholas Pretto", profileUrl: "https://exemplo.com/augusto" },
+];
+---
+
+<Layout title="Guia de Estilos do DeltaFolha">
+  <main class="max-w-[650px] m-auto px-2">
+    <section id="text" class="flex flex-col gap-2">
+      <div class="py-5">
+        <Heading>Textos</Heading>
+        <hr />
+      </div>
+      <Heading as="p" type="kicker">Banco Central</Heading>
+      <Heading type="headline">
+        Meta fiscal de 2023 fica mais apertada após BC ver resultado pior que o
+        Tesouro
+      </Heading>
+      <Heading as="h2" type="subhead">
+        Aumento de despesas e frustração de receitas consomem folga na reta
+        final deste ano
+      </Heading>
+      <Dateline datetime="2023-11-27 10:09:00" />
+      <Byline authors={authorsData} />
+      <Heading type="intertitle">Aumento de despesas</Heading>
+      <Paragraph>
+        Enquanto persiste a discussão sobre o destino da meta de déficit zero em
+        2024, uma conjugação de frustração de receitas e aumento de despesas
+        deixa mais complexo o cenário para o cumprimento do alvo também em 2023.
+      </Paragraph>
+      <hr style="border: dashed 1px; margin: 20px 0px 20px 0px" />
+      <Heading as="h1">Título principal</Heading>
+      <Heading as="h3">Título descritivo</Heading>
+      <Paragraph type="grafico">Um texto qualquer para um gráfico</Paragraph>
+      <Paragraph type="score">Score: 50%</Paragraph>
+      <Paragraph type="unidade">Unidade: Em %</Paragraph>
+      <Paragraph type="fonte">Fonte: DeltaFolha</Paragraph>
+    </section>
+    <section id="charts" class="flex flex-col gap-2">
+      <div class="py-5">
+        <Heading>Gráficos</Heading>
+        <hr />
+      </div>
+      <Infographic
+        client:only="react"
+        id="AjHkP"
+        url="https://arte.folha.uol.com.br/cotidiano/2023/11/21/repasse-verba-universidades-federais-sob-bolsonaro/infografico4.html"
+      />
+    </section>
+    <section id="elementos" class="flex flex-col gap-2">
+      <div class="py-5">
+        <Heading>Elementos</Heading>
+        <hr />
+      </div>
+      <SliderWrapper
+        client:only="react"
+        values={[0, 50000]}
+        labels={["0 km²", "50.000 km²"]}
+        startAt={0}
+      />
+      Legenda
+      <InteractiveDisclosure
+        client:only="react"
+        text="Este não é um gráfico interativo. Não clique"
+      />
+    </section>
+  </main>
+</Layout>
+
+<style></style>
