@@ -22,7 +22,7 @@ const Heading: React.FC<HeadingProps> = ({
     case "headline":
       return (
         <Component
-          className={`font-serif font-semibold text-3xl leading-8 sm:text-4xl sm:leading-[42px] text-balance  ${className}`}
+          className={`font-headline font-semibold text-3xl leading-8 sm:text-4xl sm:leading-[42px] text-balance  ${className}`}
           {...rest}
         >
           {children}

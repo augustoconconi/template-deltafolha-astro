@@ -10,3 +10,5 @@ export const $StoryData = map({
 });
 
 export const $Story = atom(0);
+export const $StoryPage = atom(0);
+export const $StorySlidesNumber = atom(0);

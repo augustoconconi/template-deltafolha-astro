@@ -1,11 +1,12 @@
 ---
-import Layout from "../layouts/Special.dev.astro";
+import Layout from "../layouts/Special.prod.astro";
 import CustomMapSwiper from "../components/custom/swiper";
 import Heading from "../components/text/heading";
 import Dateline from "../components/text/dateline";
 import Byline from "../components/text/byline";
 import Paragraph from "../components/text/paragraph";
 import Infographic from "../components/charts/Infographic";
+import { $StoryPage } from "../store/stories";
 
 const authorsData = [
   { name: "Augusto Conconi", profileUrl: "https://exemplo.com/augusto" },
@@ -15,73 +16,264 @@ const authorsData = [
 ];
 ---
 
-<Layout title="Amazônia Desmatada">
+<script
+  is:inline
+  src="/deltafolha/2023/desmatamento-amazonia/hide-folha-header.js"></script>
+
+<Layout title="Amazônia Desmatada - Folha de S.Paulo">
   <main
     class="bg-[#333] text-white"
-    style={{ position: "relative", minHeight: "100dvh" }}
+    style={{
+      position: "relative",
+      minHeight: "100dvh",
+      //overflowY: `${$StoryPage.get() > 2 ? "scroll" : "hidden"}`,
+    }}
   >
     <CustomMapSwiper client:only="react" />
     <section
       id="article"
-      class="absolute mt-[100dvh] min-h-screen w-full bg-[#333] py-12 sm:py-28"
+      class="absolute mt-[100dvh] min-h-screen w-full bg-[#333] pt-12 sm:pt-28"
     >
-      <article class="">
+      <article id="article-content" class="m-auto max-w-7xl">
         <div class="grid grid-cols-12 gap-5 pt-5">
           <Heading
             type="headline"
-            className="px-4 col-start-1 col-end-12 sm:px-0 xl:col-start-5 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-5 2xl:col-end-9"
+            className="px-4 col-start-1 col-end-12 sm:px-0 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-9"
           >
-            Desmatamento na Amazônia diminui em 2023, mas segue com ritmo
-            acelerado
+            Amazônia perde um campo de futebol a cada 25 segundos desde Acordo
+            de Paris em 2015
           </Heading>
           <Heading
             as="h2"
             type="subhead"
-            className="px-4 col-start-1 col-end-12 sm:px-0 xl:col-start-5 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-5 2xl:col-end-9"
+            className="px-4 col-start-1 col-end-12 sm:px-0 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-9"
           >
-            Aumento de despesas e frustração de receitas consomem folga na reta
-            final deste ano
+            Primeiro balanço do tratado internacional para conter aquecimento
+            global será apresentado na COP-28
           </Heading>
         </div>
         <div class="grid grid-cols-12 gap-5 py-5">
           <div
-            class="col-start-1 col-end-12 px-4 sm:px-0 md:col-start-3 md:col-end-11 xl:col-start-3 xl:col-end-5 xl:justify-self-end 2xl:col-start-3"
+            class="col-start-1 col-end-12 px-4 sm:px-0 md:col-start-3 md:col-end-11 xl:col-start-1 xl:col-end-3 xl:justify-self-end 2xl:col-start-1"
           >
-            <Dateline datetime="2023-11-27 10:09:00" />
+            <Dateline datetime="2023-12-11 10:00:00" />
           </div>
           <div
-            class="col-start-1 col-end-12 px-4 sm:px-0 md:col-start-3 md:col-end-11 xl:col-start-5 xl:col-end-9"
+            class="col-start-1 col-end-12 px-4 sm:px-0 md:col-start-3 md:col-end-11 xl:col-start-4 xl:col-end-9"
           >
             <Byline authors={authorsData} />
           </div>
         </div>
         <div class="grid grid-cols-12 gap-5 py-2">
           <Paragraph
-            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-5 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-5 2xl:col-end-9"
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
           >
-            Ao indicar o ministro da Justiça, Flávio Dino, para a vaga de Rosa
-            Weber no STF (Supremo Tribunal Federal) o presidente Lula deve
-            reduzir a representação feminina na corte, que passa a ter apenas
-            uma mulher dentre seus 11 integrantes, a ministra Cármen Lúcia. <br
-            /><br />
-
-            Como mostrou a Folha, o presidente anunciou a escolha a aliados, que
-            deve ser comunicada nesta segunda-feira (27).
+            Cerca de 83 mil quilômetros quadrados de floresta foram desmatados
+            na Amazônia Legal desde 2015, quando o Brasil assinou o Acordo de
+            Paris comprometendo-se a colaborar com a desaceleração da crise
+            climática.
+          </Paragraph>
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            A preservação da Amazônia permeia um dos principais debates da
+            COP-28. Nesta edição, as autoridades apresentam pela primeira vez o
+            Balanço Global do tratado firmado por 195 países com o objetivo de
+            limitar o aquecimento do planeta a 1,5°C acima dos níveis
+            pré-industriais.
+          </Paragraph>
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            No caso do Brasil, o cumprimento da meta depende essencialmente da
+            diminuição dos índices de destruição da floresta.
+          </Paragraph>
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            A região perdeu 9.001 km² de vegetação nativa entre agosto do ano
+            passado e o último mês de julho, de acordo com os dados oficiais
+            mais recentes do sistema Prodes, mantido pelo Inpe (Instituto
+            Nacional de Pesquisas Espaciais). Em relação ao período anterior,
+            isso significou uma redução de 22%.
           </Paragraph>
           <Infographic
             client:only="react"
-            id="eleicoes-argentina"
-            className="my-10 col-start-1 col-end-13 xl:col-start-4 2xl:col-start-4 2xl:col-end-9 xl:col-end-12 md:col-start-2 md:col-end-12 xl:w-[850px] 2xl:translate-x-36"
-            url="https://arte.folha.uol.com.br/deltafolha/2023/10/22/eleicoes-argentina/"
+            id="amazonia-taxa-desmatamento"
+            className="my-3 col-start-1 col-end-13 xl:col-start-3 2xl:col-start-3 2xl:col-end-9 xl:col-end-8 md:col-start-2 md:col-end-12 xl:w-[850px] max-w-[300px] sm:max-w-[850px] m-auto -translate-x-3 sm:translate-x-0"
+            url="https://arte.folha.uol.com.br/ambiente/2023/12/04/delta-especial-amazonia/infografico1.html"
+          />
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            A taxa ficou abaixo dos 10.000 km² pela primeira vez depois de
+            quatro anos, resultado celebrado pelo governo Lula (PT) por quebrar
+            esse padrão estabelecido durante o mandato do ex-presidente Jair
+            Bolsonaro (PL). A gestão petista anunciou a intenção de zerar o
+            desmate até 2030.
+          </Paragraph>
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            Por enquanto, os números seguem preocupantes. A superfície destruída
+            foi maior que as registradas em todos os anos de 2009 a 2018 e
+            supera em muito a média da década passada (6.760 km²).
+          </Paragraph>
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            A área devastada na temporada mais recente equivale a seis vezes o
+            tamanho da capital de São Paulo. Já a supressão total desde o marco
+            de Paris corresponde ao dobro do estado do Rio de Janeiro. Em ambas
+            as comparações, o ritmo médio do desmatamento é de um campo de
+            futebol oficial a cada 25 segundos.
+          </Paragraph>
+          <Infographic
+            client:only="react"
+            id="amazonia-area-desmatado"
+            className="my-3 col-start-1 col-end-13 xl:col-start-3 2xl:col-start-3 2xl:col-end-9 xl:col-end-8 md:col-start-2 md:col-end-12 xl:w-[850px] max-w-[300px] sm:max-w-[850px] m-auto -translate-x-3 sm:translate-x-0"
+            url="https://arte.folha.uol.com.br/ambiente/2023/12/04/delta-especial-amazonia/infografico3.html"
+          />
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            Análise da rede especializada MapBiomas aponta a agropecuária como
+            principal vetor de pressão, com ampla diferença. O impacto direto
+            dessa atividade responde por em média 98,5% da degradação anual da
+            floresta desde 2019, início da série com dados detalhados.
+          </Paragraph>
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            A área usada para criação de gado na porção brasileira do bioma
+            cresceu 16% depois do tratado internacional, segundo mapeamento da
+            cobertura do solo feito pela mesma plataforma, com dados disponíveis
+            desde 1985. Os pastos ocupam hoje 577 mil quilômetros quadrados na
+            região, ou quase o tamanho de Minas Gerais, quarto maior estado do
+            país.
+          </Paragraph>
+          <Infographic
+            client:only="react"
+            id="amazonia-area-por-segmento"
+            className="my-3 col-start-1 col-end-13 xl:col-start-3 2xl:col-start-3 2xl:col-end-9 xl:col-end-8 md:col-start-2 md:col-end-12 xl:w-[850px] max-w-[300px] sm:max-w-[850px] m-auto -translate-x-3 sm:translate-x-0"
+            url="https://arte.folha.uol.com.br/ambiente/2023/12/04/delta-especial-amazonia/infografico5.html"
+          />
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            A agricultura também teve um salto elevado, de quase 30% no período
+            desde a assinatura do acordo. A expansão foi puxada pela soja,
+            presente em quatro a cada cinco porções de terra cultivadas
+            atualmente. As lavouras cobrem ao todo 72 mil quilômetros quadrados,
+            algo próximo a Rio Grande do Norte e Sergipe somados.
+          </Paragraph>
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            Em menor escala, a mineração registrou um aumento proporcional ainda
+            mais expressivo, tendo praticamente dobrado desde 2015. A área
+            explorada, de ao todo 3.072 km², corresponde a quase dez vezes o
+            tamanho do município de Belo Horizonte (MG), por exemplo.
+          </Paragraph>
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            Nesse setor, chama atenção a disparada do garimpo, responsável por
+            78% dos territórios minerados na região. Além do desflorestamento,
+            essa atividade ilegal provoca danos à biodiversidade e contaminação
+            dos rios e lençóis freáticos, entre outros impactos graves.
+          </Paragraph>
+          <Infographic
+            client:only="react"
+            id="amazonia-area-pasto"
+            className="my-3 col-start-1 col-end-13 xl:col-start-3 2xl:col-start-3 2xl:col-end-9 xl:col-end-8 md:col-start-2 md:col-end-12 xl:w-[850px] max-w-[300px] sm:max-w-[850px] m-auto -translate-x-3 sm:translate-x-0"
+            url="https://arte.folha.uol.com.br/ambiente/2023/12/04/delta-especial-amazonia/infografico7.html"
           />
           <Infographic
             client:only="react"
-            id="AjHkP"
-            className="my-10 col-start-1 col-end-13 xl:col-start-4 2xl:col-start-4 2xl:col-end-9 xl:col-end-12 md:col-start-2 md:col-end-12 xl:w-[850px] 2xl:translate-x-36"
-            url="https://arte.folha.uol.com.br/cotidiano/2023/11/21/repasse-verba-universidades-federais-sob-bolsonaro/infografico4.html"
+            id="amazonia-area-soja"
+            className="my-3 col-start-1 col-end-13 xl:col-start-3 2xl:col-start-3 2xl:col-end-9 xl:col-end-8 md:col-start-2 md:col-end-12 xl:w-[850px] max-w-[300px] sm:max-w-[850px] m-auto -translate-x-3 sm:translate-x-0"
+            url="https://arte.folha.uol.com.br/ambiente/2023/12/04/delta-especial-amazonia/infografico9.html"
           />
+          <Infographic
+            client:only="react"
+            id="amazonia-area-mineracao"
+            className="my-3 col-start-1 col-end-13 xl:col-start-3 2xl:col-start-3 2xl:col-end-9 xl:col-end-8 md:col-start-2 md:col-end-12 xl:w-[850px] max-w-[300px] sm:max-w-[850px] m-auto -translate-x-3 sm:translate-x-0"
+            url="https://arte.folha.uol.com.br/ambiente/2023/12/04/delta-especial-amazonia-parte2/infografico2.html"
+          />
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            Juntos, os usos do solo resultantes da ação humana aumentaram de 3%
+            para 16% da porção brasileira da Amazônia desde 1985.
+          </Paragraph>
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            Paralelamente, a cobertura florestal recuou de 90% para 78%. Os
+            números não são diretamente comparáveis às taxas de desmatamento
+            oficiais do Inpe, mas indicam uma aproximação da faixa de risco
+            traçada por especialistas para estimar o ponto de inflexão que
+            tornaria irreversível a savanização do ecossistema.
+          </Paragraph>
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            Esse limite seria de entre um quarto e um quinto de perda da
+            floresta primária, segundo artigo publicado em 2018 pelos
+            pesquisadores Thomas Lovejoy, da George Mason University (EUA), e
+            Carlos Nobre, do Instituto de Estudos Avançados da USP e do Painel
+            Científico para a Amazônia.
+          </Paragraph>
+          <Infographic
+            client:only="react"
+            id="amazonia-area-slider-1"
+            className="my-3 col-start-1 col-end-13 xl:col-start-2 2xl:col-start-4 2xl:col-end-9 xl:col-end-12 md:col-start-2 md:col-end-12 xl:w-[850px] max-w-[300px] sm:max-w-[630px] m-auto -translate-x-3 sm:translate-x-0"
+            url="https://arte.folha.uol.com.br/ambiente/2023/12/04/delta-especial-amazonia-mapa/infografico6.html"
+          />
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            Historicamente, o Brasil registrou os maiores níveis de desmatamento
+            entre a década de 1980 e a primeira metade dos anos 2000. O combate
+            passou a ser mais efetivo depois da instituição do Plano de Ação
+            para Prevenção e Controle na Amazônia Legal (PPCDAm), em 2004.
+          </Paragraph>
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            Nobre ressalta o incentivo ao agronegócio no governo Michel Temer e
+            a postura negacionista de Bolsonaro, mas cita também a recessão
+            econômica de 2015 como uma das explicações para o aumento das taxas
+            após o Acordo de Paris.
+          </Paragraph>
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            “Praticamente 90% do desmatamento é ilegal. Fiscalizar, deslocar
+            equipes, destruir equipamentos, todas essas ações têm um custo muito
+            alto, e o governo passou a gastar menos recursos naquele momento”,
+            diz o cientista.
+          </Paragraph>
+          <Paragraph
+            className="px-4 sm:px-0 col-start-1 col-end-13 xl:col-start-4 xl:col-end-10 md:col-start-3 md:col-end-11 2xl:col-start-4 2xl:col-end-10"
+          >
+            Ao avaliar o cenário atual, o pesquisador faz previsões mais
+            otimistas. “Felizmente, tivemos um ano de redução considerável no
+            desmatamento. Continuando essa tendência, teremos em 2024 uma taxa
+            próxima da mínima histórica ou até abaixo. E quase todos os países
+            amazônicos também já declararam que vão zerar até 2030. Então, é
+            muito possível que isso [cumprimento das metas] seja realizado”.
+          </Paragraph>
         </div>
       </article>
+      <div class="mt-10">
+        <hr />
+        <script>
+          <!--#include virtual="/virtual/3.0/arte/footer__script-resize.js"-->
+         </script>
+         <!--#include virtual="/virtual/3.0/arte/article-graphic__full-page_after.inc"-->
+      </div>
     </section>
   </main>
 </Layout>

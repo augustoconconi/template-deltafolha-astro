@@ -43,4 +43,45 @@ const { title } = Astro.props;
     .maplibregl-compact-show {
     display: block !important;
   }
+
+  .vivo {
+    background: #0078a4;
+    cursor: pointer;
+    box-shadow: 0 0 0 rgba(204, 169, 44, 0.4);
+    animation: pulse 2s infinite;
+    animation-delay: 4s, 2s;
+  }
+  .vivo:hover {
+    animation: none;
+  }
+
+  @-webkit-keyframes pulse {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+    }
+    70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+    }
+    100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+    }
+  }
+  @keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+      box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+    }
+    70% {
+      -moz-box-shadow: 0 0 0 20px rgba(204, 169, 44, 0);
+      box-shadow: 0 0 0 20px rgba(204, 169, 44, 0);
+    }
+    100% {
+      -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+      box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+    }
+  }
+
+  .swiper-wrapper {
+    /* position: fixed !important; */
+  }
 </style>

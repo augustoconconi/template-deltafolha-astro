@@ -15,6 +15,7 @@ module.exports = {
       fontFamily: {
         sans: ["FolhaGrafico", "Arial", "sans-serif"],
         serif: ["FolhaTexto", "Georgia", "serif"],
+        headline: ["FolhaII", "Georgia", "serif"],
       },
       colors: {
         folha: {

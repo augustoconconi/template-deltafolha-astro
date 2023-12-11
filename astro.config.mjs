@@ -4,7 +4,7 @@ import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
 
 const DEV = import.meta.env.DEV;
-const DELTAPATH = "/deltafolha/2023/10/22/eleicoes-argentina";
+const DELTAPATH = "/deltafolha/2023/desmatamento-amazonia";
 export const DELTAURL = DEV
   ? "http://localhost:3000"
   : `https://arte.folha.uol.com.br${DELTAPATH}`;

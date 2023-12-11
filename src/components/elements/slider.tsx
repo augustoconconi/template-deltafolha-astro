@@ -62,9 +62,9 @@ const SliderWrapper: React.FC<SliderWrapperProps> = ({
         <Slider
           aria-label="Teste"
           value={value} // Use 'value' para tornar o Slider controlado
-          marks={!sliderContent?.marks ? null : sliderContent?.marks}
+          //marks={!sliderContent?.marks ? null : sliderContent?.marks}
           valueLabelFormat={(v) => `${v.toLocaleString("pt-BR")} km²`}
-          valueLabelDisplay="on"
+          valueLabelDisplay="off"
           onChangeCommitted={handleSliderChangeCommitted}
           onChange={handleSliderChange}
           step={100}

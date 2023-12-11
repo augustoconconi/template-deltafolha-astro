@@ -18,13 +18,17 @@ const { title } = Astro.props;
   <body>
     <!--#include virtual="/virtual/3.0/arte/header__full-page.inc" -->
     <slot />
+    <script>
+     <!--#include virtual="/virtual/3.0/arte/footer__script-resize.js"-->
+    </script>
+    <!--#include virtual="/virtual/3.0/arte/article-graphic__full-page_after.inc"-->
   </body>
-  <!--#include virtual="/virtual/3.0/arte/article-graphic__full-page_after.inc" -->
 </html>
 <style is:global>
   .text-balance {
     text-wrap: balance;
   }
+
   .maplibregl-control-container
     > div.maplibregl-ctrl-bottom-right
     > details:nth-child(2) {
@@ -36,5 +40,42 @@ const { title } = Astro.props;
     .maplibregl-compact
     .maplibregl-compact-show {
     display: block !important;
+  }
+
+  .vivo {
+    background: #0078a4;
+    cursor: pointer;
+    box-shadow: 0 0 0 rgba(204, 169, 44, 0.4);
+    animation: pulse 2s infinite;
+    animation-delay: 4s, 2s;
+  }
+  .vivo:hover {
+    animation: none;
+  }
+
+  @-webkit-keyframes pulse {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+    }
+    70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+    }
+    100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+    }
+  }
+  @keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+      box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+    }
+    70% {
+      -moz-box-shadow: 0 0 0 20px rgba(204, 169, 44, 0);
+      box-shadow: 0 0 0 20px rgba(204, 169, 44, 0);
+    }
+    100% {
+      -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+      box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+    }
   }
 </style>

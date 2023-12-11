@@ -5,3 +5,9 @@ export const $latlon = map({
   lon: null,
   error: null,
 });
+
+export const $imageMap = map({
+  filename: null,
+  format: null,
+  binary: null,
+});
